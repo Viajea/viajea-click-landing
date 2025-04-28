@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Viajea - Tu agencia de viajes de confianza. Descubre destinos únicos, experiencias inolvidables y los mejores precios para tus próximas vacaciones." />
+  <meta name="keywords" content="viajes, agencia de viajes, vacaciones, destinos, turismo, viajes personalizados" />
+  <meta name="author" content="Viajea" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Viajea - Tu próxima aventura" />
+  <meta property="og:description" content="Descubre el mundo con Viajea - Experiencias únicas, momentos inolvidables" />
+  <meta property="og:image" content="assets/viajea-logo-social.jpg" />
+  <meta property="og:url" content="https://viajea.click" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://viajea.click" />
+  <title>Viajea | Escapa de la rutina y descubre tu próxima gran aventura</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="video" href="assets/travel-video.mp4" type="video/mp4">
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #2b6cb0;
+      --accent-color: #e53e3e;
+      --text-color: #2d3748;
+      --light-bg: #f7fafc;
+      --white: #ffffff;
+      --transition: all 0.3s ease;
+      --whatsapp-color: #25D366;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-bg);
+      /* padding-top eliminado, ahora solo el hero-content tiene padding */
+    }
+
+    .header {
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      height: 56px;
+      min-height: 56px;
+      padding: 0;
+      transition: var(--transition);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+    }
+
+    .header-container {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+    }
+
+    .logo {
+      max-width: 120px;
+      height: auto;
+      transition: var(--transition);
+    }
+
+    .nav-contact {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .telefono {
+      font-weight: 600;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 1.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      background: rgba(37, 211, 102, 0.1);
+    }
+
+    .telefono i {
+      font-size: 1.4rem;
+      color: #25D366;
+    }
+
+    .telefono:hover {
+      color: #25D366;
+      background: rgba(37, 211, 102, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .cta-contact {
+      background: var(--accent-color);
+      color: var(--white);
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .cta-contact:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(229, 62, 62, 0.3);
+    }
+
+    .video-container {
+      position: relative;
+      width: 50%;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .hero-video.active {
+      opacity: 1;
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #FFF5F2 0%, transparent 20%);
+      z-index: 2;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      height: 100dvh;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      color: var(--text-color);
+      padding: 0;
+      background: #FFF5F2;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 600px;
+      margin: 0;
+      padding: 32px 5%;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+      flex: 1;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-shadow: none;
+    }
+
+    .hero h1 span {
+      color: var(--accent-color);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+      opacity: 0.8;
+      text-shadow: none;
+      max-width: 90%;
+      margin-left: 0;
+      line-height: 1.6;
+    }
+
+    .hero-illustration {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 45%;
+      height: auto;
+      z-index: 2;
+    }
+
+    .cta {
+      background: var(--accent-color);
+      color: var(--white);
+      padding: 1.2rem 3rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: var(--transition);
+      display: inline-block;
+      animation: fadeInUp 1s ease 0.4s;
+      animation-fill-mode: both;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(229, 62, 62, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(229, 62, 62, 0.35);
+    }
+
+    .cta::after {
+      content: '➤';
+      position: absolute;
+      right: -20px;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .cta:hover::after {
+      right: 20px;
+      opacity: 1;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .features {
+      padding: 6rem 1rem;
+      background: var(--white);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      color: var(--primary-color);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 2rem 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: box-shadow 0.3s;
+      border: 1px solid #f0e6ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: #723f9d;
+      margin-bottom: 1rem;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1);
+    }
+
+    .testimonials {
+      padding: 6rem 1rem;
+      background: var(--light-bg);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      font-size: 5rem;
+      color: var(--secondary-color);
+      opacity: 0.1;
+      position: absolute;
+      top: -1rem;
+      left: 1rem;
+    }
+
+    .testimonial-location {
+      color: var(--secondary-color);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .testimonial-signature {
+      color: var(--accent-color);
+      font-weight: 600;
+      font-style: italic;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .formulario {
+      padding: 6rem 1rem;
+      background: var(--white);
+    }
+
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: linear-gradient(to bottom, var(--white), rgba(247, 250, 252, 0.8));
+      padding: 3rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      position: absolute;
+      left: 1rem;
+      top: 0.8rem;
+      color: var(--text-color);
+      transition: all 0.2s ease;
+      pointer-events: none;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    .form-control:focus ~ .form-label,
+    .form-control:not(:placeholder-shown) ~ .form-label {
+      top: -0.5rem;
+      left: 0.8rem;
+      font-size: 0.75rem;
+      padding: 0 0.4rem;
+      background: var(--white);
+      opacity: 1;
+      color: var(--secondary-color);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 0;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: var(--transition);
+      background: var(--light-bg);
+    }
+
+    .form-description {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+      font-size: 1.1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .form-checkbox input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+    }
+
+    .form-checkbox label {
+      font-size: 0.9rem;
+      color: var(--text-color);
+    }
+
+    .form-submit {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-submit::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: translateX(-100%);
+    }
+
+    .form-submit:hover::after {
+      transform: translateX(100%);
+      transition: transform 0.6s ease;
+    }
+
+    .mensaje-exito {
+      text-align: center;
+      color: var(--secondary-color);
+      font-weight: 600;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(43, 108, 176, 0.1);
+      border-radius: 8px;
+    }
+
+    footer {
+      background: var(--primary-color);
+      color: var(--white);
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .social-links {
+      margin: 2rem 0;
+    }
+
+    .social-links a {
+      color: var(--white);
+      margin: 0 1.5rem;
+      font-size: 2.2rem;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .social-links a:hover {
+      color: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        padding: 0;
+      }
+
+      .hero-content {
+        width: 100%;
+        padding: 32px 1rem;
+        text-align: center;
+        align-items: center;
+      }
+
+      .video-container {
+        width: 100%;
+        height: 50vh;
+        order: -1;
+      }
+
+      .video-overlay {
+        background: linear-gradient(to bottom, transparent 0%, #FFF5F2 90%);
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-illustration {
+        position: relative;
+        width: 90%;
+        margin-top: 2rem;
+        right: auto;
+        top: auto;
+        transform: none;
+      }
+
+      .feature-grid,
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .header-container {
+        padding: 0 1rem;
+      }
+
+      .nav-contact {
+        gap: 1rem;
+      }
+
+      .cta-contact {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .telefono {
+        font-size: 1.2rem;
+      }
+
+      .telefono i {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      cursor: pointer;
+      animation: bounceArrow 2s infinite;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .scroll-down:hover {
+      opacity: 1;
+    }
+
+    @keyframes bounceArrow {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+      }
+      40% {
+        transform: translateY(-15px) translateX(-50%);
+      }
+      60% {
+        transform: translateY(-7px) translateX(-50%);
+      }
+    }
+
+    .video-loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 5px solid var(--white);
+      border-top-color: var(--accent-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        background-image: url('assets/hero-mobile.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+      .hero-video {
+        display: none;
+      }
+    }
+
+    /* WhatsApp flotante con aparición retrasada */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: -100px;
+      z-index: 1000;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    .whatsapp-float.visible {
+      right: 30px;
+      opacity: 1;
+    }
+
+    .whatsapp-button {
+      display: flex;
+      align-items: center;
+      background-color: rgba(37, 211, 102, 0.9);
+      color: var(--white);
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+      transition: var(--transition);
+    }
+
+    .whatsapp-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    .whatsapp-button i {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .whatsapp-button span {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .whatsapp-button {
+        padding: 12px 20px;
+      }
+      .whatsapp-button span {
+        display: none;
+      }
+      .whatsapp-button i {
+        margin-right: 0;
+        font-size: 28px;
+      }
+    }
+
+    .tipo-viaje-container {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(247, 250, 252, 0.5);
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .tipo-viaje-title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .tipo-viaje-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .tipo-viaje-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 0.5rem;
+      background: var(--white);
+      border: 2px solid rgba(0,0,0,0.08);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      text-align: center;
+      height: 100%;
+      gap: 0.8rem;
+      min-height: 100px;
+      position: relative;
+    }
+
+    .tipo-viaje-label::before {
+      content: '';
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(0,0,0,0.2);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .tipo-viaje-option input:checked + .tipo-viaje-label::before {
+      background: var(--white);
+      border-color: var(--white);
+    }
+
+    .tipo-viaje-option input:checked + .tipo-viaje-label::after {
+      content: '✓';
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      color: var(--secondary-color);
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .tipo-viaje-label .viaje-texto {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .tipo-viaje-label .viaje-tipo {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .tipo-viaje-label .viaje-icon {
+      font-size: 1.2rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .tipo-viaje-option input:checked + .tipo-viaje-label {
+      background: var(--secondary-color);
+      color: var(--white);
+      border-color: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(43, 108, 176, 0.2);
+    }
+
+    .tipo-viaje-option input:checked + .tipo-viaje-label .viaje-texto,
+    .tipo-viaje-option input:checked + .tipo-viaje-label .viaje-tipo,
+    .tipo-viaje-option input:checked + .tipo-viaje-label .viaje-icon {
+      color: var(--white);
+    }
+
+    .form-submit {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-submit::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: translateX(-100%);
+    }
+
+    .form-submit:hover::after {
+      transform: translateX(100%);
+      transition: transform 0.6s ease;
+    }
+
+    @media (max-width: 768px) {
+      .tipo-viaje-options {
+        gap: 0.5rem;
+      }
+      .tipo-viaje-label {
+        padding: 1rem 0.5rem;
+        min-height: 100px;
+      }
+      .tipo-viaje-label .viaje-tipo {
+        font-size: 1rem;
+      }
+      .tipo-viaje-label .viaje-icon {
+        font-size: 1.2rem;
+      }
+      .tipo-viaje-label::before,
+      .tipo-viaje-option input:checked + .tipo-viaje-label::after {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 16px;
+        height: 16px;
+        font-size: 0.8rem;
+      }
+      .tipo-viaje-option input:checked + .tipo-viaje-label::before {
+        /* Ajuste para el checkmark */
+      }
+      .form-submit {
+        min-height: 44px;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .form-container {
+        background: linear-gradient(to bottom, rgba(26, 32, 44, 0.8), rgba(26, 32, 44, 0.9));
+      }
+      .tipo-viaje-container {
+        background: rgba(26, 32, 44, 0.3);
+      }
+      .tipo-viaje-label {
+        background: rgba(26, 32, 44, 0.5);
+        border-color: rgba(255,255,255,0.1);
+      }
+      .form-label {
+        color: rgba(255,255,255,0.8);
+      }
+    }
+
+    .payment-methods {
+      margin: 2rem 0;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .payment-methods h4 {
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .payment-icons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      align-items: center;
+    }
+
+    .payment-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+      min-height: 120px;
+    }
+
+    .payment-item img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      transition: var(--transition);
+    }
+
+    .payment-item img.bbva-logo,
+    .payment-item img.interbank-logo {
+      height: 80px;
+    }
+
+    .payment-item img.bcp-logo {
+      height: 35px;
+    }
+
+    .payment-item span {
+      color: var(--white);
+      font-size: 0.85rem;
+      text-align: center;
+      opacity: 0.9;
+    }
+
+    .payment-item:hover img {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .payment-item img {
+        height: 35px;
+      }
+      .payment-item img.bbva-logo,
+      .payment-item img.interbank-logo {
+        height: 70px;
+      }
+      .payment-item img.bcp-logo {
+        height: 30px;
+      }
+      .payment-item {
+        min-height: 100px;
+      }
+    }
+
+    /* Estilos para la sección de noticias */
+    .news-section {
+      padding: 4rem 1rem;
+      background: var(--light-bg);
+    }
+
+    .news-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .news-section .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--primary-color);
+    }
+
+    .news-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    .news-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: var(--transition);
+      text-decoration: none;
+      color: var(--text-color);
+    }
+
+    .news-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .news-icon {
+      font-size: 2rem;
+      color: var(--secondary-color);
+      margin-top: 0.2rem;
+    }
+
+    .news-content h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: var(--primary-color);
+    }
+
+    .news-content p {
+      font-size: 1rem;
+      color: var(--text-color);
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .news-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .news-item {
+        padding: 1.2rem;
+      }
+
+      .news-icon {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .news-section {
+        background: var(--primary-color);
+      }
+      
+      .news-item {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .news-content h4 {
+        color: var(--white);
+      }
+
+      .news-content p {
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <img src="assets/viajea logo.png" alt="Logo de Viajea - Agencia de viajes" class="logo" />
+      <nav class="nav-contact">
+        <a href="https://wa.me/51972481874?text=¡Hola%20Viajea!%20Me%20gustaría%20información%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer" class="telefono">
+          <i class="fab fa-whatsapp"></i>
+          +51 972 481 874
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Todo lo que <span>siempre has soñado</span> para tu próximo viaje</h1>
+      <p>... pero las agencias tradicionales nunca te ofrecieron. Descubre una nueva forma de viajar con atención personalizada y los mejores precios.</p>
+      <a href="#formulario" class="cta" aria-label="Comienza tu aventura con Viajea">¡Comienza tu aventura!</a>
+    </div>
+    <div class="video-container">
+      <div class="video-overlay"></div>
+      <video id="heroVideo1" class="hero-video active" autoplay muted loop playsinline>
+        <source src="assets/travel-video.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+      </video>
+      <video id="heroVideo2" class="hero-video" autoplay muted loop playsinline>
+        <source src="assets/travel-video1.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+      </video>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2 class="section-title">Nuestros Servicios Exclusivos</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <i class="fas fa-passport feature-icon"></i>
+        <h3>Asesoría Migratoria</h3>
+        <p>Te guiamos en todo el proceso de documentación y trámites migratorios para que tu viaje sea sin complicaciones</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-headset feature-icon"></i>
+        <h3>Acompañamiento Personalizado</h3>
+        <p>Estamos contigo desde la compra hasta el embarque, resolviendo todas tus dudas y brindándote información actualizada</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-search-dollar feature-icon"></i>
+        <h3>Búsqueda de Ofertas</h3>
+        <p>Encontramos las mejores tarifas y promociones para que aproveches al máximo tu presupuesto de viaje</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-shield-alt feature-icon"></i>
+        <h3>Seguridad Garantizada</h3>
+        <p>Trabajamos con aerolíneas y proveedores certificados para garantizar la seguridad de tu viaje</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2 class="section-title">Lo que dicen nuestros viajeros</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p>"Viajea me ayudó a navegar todo el proceso de documentación para mi viaje a España. Su asesoría fue clave para obtener mi visa sin problemas. Me explicaron cada paso y estuvieron disponibles para resolver mis dudas en todo momento."</p>
+        <strong>- Carlos M.</strong>
+        <p class="testimonial-location">Lima, Perú</p>
+      </div>
+      <div class="testimonial-card">
+        <p>"Desde que compré mi boleto hasta que abordé el avión, el equipo de Viajea estuvo pendiente de mí. Me mantuvieron informada sobre cada detalle y me ayudaron con todos los trámites. Fue como viajar con un amigo que sabe todo sobre el proceso."</p>
+        <strong>- Sofía R.</strong>
+        <p class="testimonial-location">Madrid, España</p>
+      </div>
+      <div class="testimonial-card">
+        <p>"Gracias a Viajea encontré una oferta increíble para mi viaje a México. No solo me ahorraron dinero, sino que me ayudaron a planificar un itinerario perfecto que incluía todo lo que quería hacer. ¡Maximizaron cada centavo de mi presupuesto!"</p>
+        <strong>- Juan P.</strong>
+        <p class="testimonial-location">Buenos Aires, Argentina</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="formulario" class="formulario">
+    <div class="form-container">
+      <h2 class="section-title">¡Planifica tu Próxima Aventura!</h2>
+      <p class="form-description">Deja que nuestros expertos diseñen el viaje perfecto para ti. Completa el formulario y nos pondremos en contacto contigo para crear una experiencia única.</p>
+      
+      <form id="leadForm" action="https://forms.hubspot.com/uploads/form/v2/49665804/25b6e03b-e2bf-4a6a-9185-c707a6f6eebb" method="POST">
+        <div class="tipo-viaje-container">
+          <h3 class="tipo-viaje-title">¿Qué tipo de viaje te gustaría realizar?</h3>
+          <div class="tipo-viaje-options">
+            <label class="tipo-viaje-option">
+              <input type="radio" name="tipo_viaje" value="migratorio" required>
+              <span class="tipo-viaje-label">
+                <i class="fas fa-plane-departure viaje-icon"></i>
+                <span class="viaje-texto">Viaje</span>
+                <span class="viaje-tipo">Migratorio</span>
+              </span>
+            </label>
+            <label class="tipo-viaje-option">
+              <input type="radio" name="tipo_viaje" value="trabajo" required>
+              <span class="tipo-viaje-label">
+                <i class="fas fa-briefcase viaje-icon"></i>
+                <span class="viaje-texto">Viaje</span>
+                <span class="viaje-tipo">Trabajo</span>
+              </span>
+            </label>
+            <label class="tipo-viaje-option">
+              <input type="radio" name="tipo_viaje" value="vacacional" required>
+              <span class="tipo-viaje-label">
+                <i class="fas fa-umbrella-beach viaje-icon"></i>
+                <span class="viaje-texto">Viaje</span>
+                <span class="viaje-tipo">Vacacional</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="nombre" class="visually-hidden">Nombre completo</label>
+          <input type="text" id="nombre" name="firstname" placeholder="Nombre completo" required aria-label="Ingrese su nombre completo" />
+          
+          <label for="email" class="visually-hidden">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="Correo" required aria-label="Ingrese su correo electrónico" />
+        </div>
+        <div class="form-row">
+          <label for="telefono" class="visually-hidden">Número de WhatsApp</label>
+          <input type="tel" id="telefono" name="phone" placeholder="Número de WhatsApp" required aria-label="Ingrese su número de WhatsApp" />
+          
+          <label for="destino" class="visually-hidden">Destino deseado</label>
+          <input type="text" id="destino" name="destino" placeholder="Destino deseado" required aria-label="Ingrese su destino deseado" />
+        </div>
+        
+        <input type="hidden" name="hs_context" value="{}">
+        <button type="submit">Enviar Solicitud</button>
+      </form>
+      <p class="mensaje-exito" style="display: none;">¡Gracias! Nos pondremos en contacto pronto para diseñar tu viaje perfecto.</p>
+    </div>
+  </section>
+
+  <section class="news-section">
+    <div class="container">
+      <h2 class="section-title">Noticias de Interés</h2>
+      <div class="news-container">
+        <a href="noticias.html#visas" class="news-item">
+          <i class="fas fa-passport news-icon"></i>
+          <div class="news-content">
+            <h4>Visas y Permisos</h4>
+            <p>Información actualizada sobre trámites y requisitos de visas.</p>
+          </div>
+        </a>
+        <a href="noticias.html#aerolineas" class="news-item">
+          <i class="fas fa-plane news-icon"></i>
+          <div class="news-content">
+            <h4>Regulaciones de Aerolíneas</h4>
+            <p>Políticas y requisitos actualizados de las aerolíneas.</p>
+          </div>
+        </a>
+        <a href="noticias.html#peru" class="news-item">
+          <i class="fas fa-landmark news-icon"></i>
+          <div class="news-content">
+            <h4>Normativas Peruanas</h4>
+            <p>Actualizaciones sobre regulaciones migratorias en Perú.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=61575475312399" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/51972481874" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.tiktok.com/@viajea.click" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en TikTok"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <div class="payment-methods">
+      <h4>Métodos de Pago Aceptados</h4>
+      <div class="payment-icons">
+        <div class="payment-item">
+          <img src="assets/logo-yape-sin-fondo-png.png" alt="Yape" loading="lazy"/>
+          <span>Yape</span>
+        </div>
+        <div class="payment-item">
+          <img src="assets/plin-logo-0C4106153C-seeklogo.com.png" alt="Plin" loading="lazy"/>
+          <span>Plin</span>
+        </div>
+        <div class="payment-item">
+          <img src="assets/bcp.png" alt="BCP" loading="lazy" class="bcp-logo"/>
+          <span>Banco de Crédito BCP</span>
+        </div>
+        <div class="payment-item">
+          <img src="assets/interbank.png" alt="Interbank" loading="lazy" class="interbank-logo"/>
+          <span>Interbank</span>
+        </div>
+        <div class="payment-item">
+          <img src="assets/bbva.png" alt="BBVA" loading="lazy" class="bbva-logo"/>
+          <span>BBVA Continental</span>
+        </div>
+      </div>
+    </div>
+    <p>© 2025 Viajea - Todos los derechos reservados</p>
+    <p>📍 Av. 2 de Octubre (Calle 27), Urb. Puerta de Pro, Los Olivos, Lima - Perú</p>
+    <p>Teléfono: +51 972 481 874</p>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/51972481874?text=¡Hola%20Viajea!%20Estoy%20interesado%20en%20planificar%20mi%20próximo%20viaje.%20¿Podrías%20ayudarme%20a%20crear%20una%20experiencia%20única?" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Chatea con nosotros por WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+      <span>¡Chatea con nosotros!</span>
+    </a>
+  </div>
+
+  <!-- HubSpot Tracking Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49665804.js"></script>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      const whatsappFloat = document.querySelector('.whatsapp-float');
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      // Mostrar WhatsApp después de cierto scroll
+      if (scrollPosition > 300) {
+        whatsappFloat.classList.add('visible');
+      } else {
+        whatsappFloat.classList.remove('visible');
+      }
+    });
+
+    // Función para obtener la cookie de HubSpot llamada "hubspotutk"
+    function getHubspotUTK() {
+      const name = "hubspotutk=";
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const ca = decodedCookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(name) === 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return null;
+    }
+
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const hutk = getHubspotUTK(); // Capturamos el cookie de HubSpot
+
+      const data = {
+        fields: [
+          {
+            name: "firstname",
+            value: document.querySelector('input[name="firstname"]').value
+          },
+          {
+            name: "email",
+            value: document.querySelector('input[name="email"]').value
+          },
+          {
+            name: "phone",
+            value: document.querySelector('input[name="phone"]').value
+          },
+          {
+            name: "destino",
+            value: document.querySelector('input[name="destino"]').value
+          },
+          {
+            name: "tipo_viaje",
+            value: document.querySelector('input[name="tipo_viaje"]:checked').value
+          }
+        ],
+        context: {
+          hutk: hutk, // Se envía el hubspotutk si existe
+          pageUri: window.location.href, // Página desde donde se envió
+          pageName: document.title // Título de la página
+        }
+      };
+
+      fetch('https://api.hsforms.com/submissions/v3/integration/submit/49665804/b9aba9cd-0fac-49b0-86d8-4354f44793cd', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }).then(response => {
+        if (response.ok) {
+          document.querySelector('.mensaje-exito').style.display = 'block';
+          document.getElementById('leadForm').reset();
+        } else {
+          alert("Hubo un error al enviar el formulario");
+        }
+      }).catch(error => {
+        console.error('Error:', error);
+        alert("Hubo un error al enviar el formulario");
+      });
+    });
+
+    // Carrusel de videos con fade
+    const videoSources = [
+      'assets/travel-video.mp4',
+      'assets/travel-video1.mp4',
+      'assets/travel-video2.mp4'
+    ];
+    let currentVideo = 0;
+    let showing = 1;
+    const video1 = document.getElementById('heroVideo1');
+    const video2 = document.getElementById('heroVideo2');
+
+    setInterval(() => {
+      const nextVideo = (currentVideo + 1) % videoSources.length;
+      const fadeIn = showing === 1 ? video2 : video1;
+      const fadeOut = showing === 1 ? video1 : video2;
+
+      fadeIn.querySelector('source').src = videoSources[nextVideo];
+      fadeIn.load();
+      fadeIn.play();
+
+      fadeIn.classList.add('active');
+      fadeOut.classList.remove('active');
+
+      showing = showing === 1 ? 2 : 1;
+      currentVideo = nextVideo;
+    }, 8000);
+
+    // Asegura que el video principal tenga la clase 'active' al cargar el DOM
+    window.addEventListener('DOMContentLoaded', () => {
+      const video = document.querySelector('.hero-video');
+      if (video) {
+        video.classList.add('active');
+      }
+    });
+
+    // Scroll down button
+    document.querySelector('.scroll-down').addEventListener('click', function() {
+      window.scrollTo({
+        top: document.querySelector('.features').offsetTop,
+        behavior: 'smooth'
+      });
+    });
+
+    // Video loader
+    const videoLoader = document.getElementById('videoLoader');
+    const heroVideos = document.querySelectorAll('.hero-video');
+
+    heroVideos.forEach(video => {
+      video.addEventListener('loadeddata', function() {
+        videoLoader.style.display = 'none';
+      });
+    });
+
+    // Fallback for slow connections
+    setTimeout(() => {
+      videoLoader.style.display = 'none';
+    }, 5000);
+  </script>
+</body>
+</html>
+

@@ -1060,6 +1060,173 @@
         color: rgba(255, 255, 255, 0.8);
       }
     }
+
+    /* Estilos personalizados para el formulario de HubSpot */
+    .custom-hubspot-form {
+      max-width: 800px;
+      margin: 0 auto;
+      font-family: 'Poppins', sans-serif;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-hubspot-form .hs-form {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .custom-hubspot-form .hs-form-field {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .custom-hubspot-form .hs-input {
+      width: 100%;
+      padding: 1.2rem;
+      border: 2px solid rgba(0,0,0,0.1);
+      border-radius: 12px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      background: var(--light-bg);
+      color: var(--text-color);
+    }
+
+    /* Estilos específicos para el campo de motivo de viaje */
+    .custom-hubspot-form select.hs-input {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1.5em;
+      padding-right: 3rem;
+      cursor: pointer;
+    }
+
+    .custom-hubspot-form select.hs-input:hover {
+      border-color: var(--secondary-color);
+    }
+
+    .custom-hubspot-form select.hs-input:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+    }
+
+    .custom-hubspot-form .hs-input:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
+    }
+
+    .custom-hubspot-form .hs-error-msgs {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0;
+      color: var(--accent-color);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .custom-hubspot-form .hs-button {
+      background: var(--accent-color);
+      color: var(--white);
+      padding: 1.2rem 3rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      width: auto;
+      margin: 2rem auto;
+      display: block;
+      box-shadow: 0 4px 15px rgba(229, 62, 62, 0.25);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .custom-hubspot-form .hs-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(229, 62, 62, 0.35);
+      background: var(--accent-color-dark);
+    }
+
+    .custom-hubspot-form .hs-form-required {
+      color: var(--accent-color);
+    }
+
+    .custom-hubspot-form label {
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 0.8rem;
+      display: block;
+      font-size: 1.1rem;
+    }
+
+    .custom-hubspot-form .hs-form-field label span {
+      color: var(--accent-color);
+      margin-left: 4px;
+    }
+
+    .submitted-message {
+      text-align: center;
+      color: var(--secondary-color);
+      padding: 2rem;
+      border-radius: 12px;
+      background: rgba(43, 108, 176, 0.1);
+      font-weight: 600;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+
+    /* Modo oscuro */
+    @media (prefers-color-scheme: dark) {
+      .custom-hubspot-form {
+        background: rgba(255, 255, 255, 0.03);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      }
+
+      .custom-hubspot-form .hs-input {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+        color: var(--white);
+      }
+
+      .custom-hubspot-form select.hs-input {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      }
+
+      .custom-hubspot-form label {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .custom-hubspot-form .hs-error-msgs {
+        color: #ff6b6b;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .custom-hubspot-form {
+        padding: 1.5rem;
+      }
+
+      .custom-hubspot-form .hs-button {
+        width: 100%;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+      }
+
+      .custom-hubspot-form .hs-input {
+        padding: 1rem;
+        font-size: 1rem;
+      }
+
+      .custom-hubspot-form label {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1071,7 +1238,7 @@
           <i class="fab fa-whatsapp"></i>
           +51 972 481 874
         </a>
-      </nav>
+    </nav>
     </div>
   </header>
 
@@ -1146,56 +1313,210 @@
       <h2 class="section-title">¡Planifica tu Próxima Aventura!</h2>
       <p class="form-description">Deja que nuestros expertos diseñen el viaje perfecto para ti. Completa el formulario y nos pondremos en contacto contigo para crear una experiencia única.</p>
       
-      <form id="leadForm" action="https://forms.hubspot.com/uploads/form/v2/49665804/25b6e03b-e2bf-4a6a-9185-c707a6f6eebb" method="POST">
-        <div class="tipo-viaje-container">
-          <h3 class="tipo-viaje-title">¿Qué tipo de viaje te gustaría realizar?</h3>
-          <div class="tipo-viaje-options">
-            <label class="tipo-viaje-option">
-              <input type="radio" name="tipo_viaje" value="migratorio" required>
-              <span class="tipo-viaje-label">
-                <i class="fas fa-plane-departure viaje-icon"></i>
-                <span class="viaje-texto">Viaje</span>
-                <span class="viaje-tipo">Migratorio</span>
-              </span>
-            </label>
-            <label class="tipo-viaje-option">
-              <input type="radio" name="tipo_viaje" value="trabajo" required>
-              <span class="tipo-viaje-label">
-                <i class="fas fa-briefcase viaje-icon"></i>
-                <span class="viaje-texto">Viaje</span>
-                <span class="viaje-tipo">Trabajo</span>
-              </span>
-            </label>
-            <label class="tipo-viaje-option">
-              <input type="radio" name="tipo_viaje" value="vacacional" required>
-              <span class="tipo-viaje-label">
-                <i class="fas fa-umbrella-beach viaje-icon"></i>
-                <span class="viaje-texto">Viaje</span>
-                <span class="viaje-tipo">Vacacional</span>
-              </span>
-            </label>
-          </div>
-        </div>
+      <!-- Formulario embebido de HubSpot -->
+      <div id="hubspot-form" class="hubspot-form-wrapper"></div>
+      <!-- HubSpot Script -->
+      <script>
+        window.addEventListener('load', function() {
+          if(window.hbspt) {
+            console.log('HubSpot script loaded successfully');
+            hbspt.forms.create({
+              region: "na1",
+              portalId: "49665804",
+              formId: "b9aba9cd-0fac-49b0-86d8-4354f44793cd",
+              target: "#hubspot-form",
+              cssRequired: "required-field",
+              cssError: "error-field",
+              cssClass: 'custom-hubspot-form',
+              submitButtonClass: 'custom-submit-button',
+              errorMessageClass: 'custom-error-message',
+              onFormReady: function($form) {
+                console.log('Form is ready and rendered');
+              },
+              translations: {
+                es: {
+                  submitText: "Enviar Solicitud",
+                  required: "Este campo es requerido",
+                  invalidEmail: "Por favor ingresa un correo válido",
+                  invalidEmailFormat: "Por favor ingresa un correo válido"
+                }
+              }
+            });
+          } else {
+            console.error('HubSpot script not loaded');
+          }
+        });
+      </script>
+      <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/embed/v2.js"></script>
 
-        <div class="form-row">
-          <label for="nombre" class="visually-hidden">Nombre completo</label>
-          <input type="text" id="nombre" name="firstname" placeholder="Nombre completo" required aria-label="Ingrese su nombre completo" />
-          
-          <label for="email" class="visually-hidden">Correo electrónico</label>
-          <input type="email" id="email" name="email" placeholder="Correo" required aria-label="Ingrese su correo electrónico" />
-        </div>
-        <div class="form-row">
-          <label for="telefono" class="visually-hidden">Número de WhatsApp</label>
-          <input type="tel" id="telefono" name="phone" placeholder="Número de WhatsApp" required aria-label="Ingrese su número de WhatsApp" />
-          
-          <label for="destino" class="visually-hidden">Destino deseado</label>
-          <input type="text" id="destino" name="destino" placeholder="Destino deseado" required aria-label="Ingrese su destino deseado" />
-        </div>
-        
-        <input type="hidden" name="hs_context" value="{}">
-        <button type="submit">Enviar Solicitud</button>
-      </form>
-      <p class="mensaje-exito" style="display: none;">¡Gracias! Nos pondremos en contacto pronto para diseñar tu viaje perfecto.</p>
+      <style>
+        /* Estilos personalizados para el formulario de HubSpot */
+        .custom-hubspot-form {
+          max-width: 800px;
+          margin: 0 auto;
+          font-family: 'Poppins', sans-serif;
+          padding: 2rem;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 16px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-hubspot-form .hs-form {
+          display: grid;
+          gap: 2rem;
+        }
+
+        .custom-hubspot-form .hs-form-field {
+          margin-bottom: 1.5rem;
+          position: relative;
+        }
+
+        .custom-hubspot-form .hs-input {
+          width: 100%;
+          padding: 1.2rem;
+          border: 2px solid rgba(0,0,0,0.1);
+          border-radius: 12px;
+          font-size: 1.1rem;
+          transition: all 0.3s ease;
+          background: var(--light-bg);
+          color: var(--text-color);
+        }
+
+        /* Estilos específicos para el campo de motivo de viaje */
+        .custom-hubspot-form select.hs-input {
+          appearance: none;
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+          background-repeat: no-repeat;
+          background-position: right 1rem center;
+          background-size: 1.5em;
+          padding-right: 3rem;
+          cursor: pointer;
+        }
+
+        .custom-hubspot-form select.hs-input:hover {
+          border-color: var(--secondary-color);
+        }
+
+        .custom-hubspot-form select.hs-input:focus {
+          border-color: var(--accent-color);
+          box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+        }
+
+        .custom-hubspot-form .hs-input:focus {
+          outline: none;
+          border-color: var(--secondary-color);
+          box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
+        }
+
+        .custom-hubspot-form .hs-error-msgs {
+          list-style: none;
+          padding: 0;
+          margin: 0.5rem 0;
+          color: var(--accent-color);
+          font-size: 0.9rem;
+          font-weight: 500;
+        }
+
+        .custom-hubspot-form .hs-button {
+          background: var(--accent-color);
+          color: var(--white);
+          padding: 1.2rem 3rem;
+          border-radius: 50px;
+          font-weight: 600;
+          font-size: 1.2rem;
+          transition: all 0.3s ease;
+          border: none;
+          cursor: pointer;
+          width: auto;
+          margin: 2rem auto;
+          display: block;
+          box-shadow: 0 4px 15px rgba(229, 62, 62, 0.25);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .custom-hubspot-form .hs-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(229, 62, 62, 0.35);
+          background: var(--accent-color-dark);
+        }
+
+        .custom-hubspot-form .hs-form-required {
+          color: var(--accent-color);
+        }
+
+        .custom-hubspot-form label {
+          font-weight: 600;
+          color: var(--text-color);
+          margin-bottom: 0.8rem;
+          display: block;
+          font-size: 1.1rem;
+        }
+
+        .custom-hubspot-form .hs-form-field label span {
+          color: var(--accent-color);
+          margin-left: 4px;
+        }
+
+        .submitted-message {
+          text-align: center;
+          color: var(--secondary-color);
+          padding: 2rem;
+          border-radius: 12px;
+          background: rgba(43, 108, 176, 0.1);
+          font-weight: 600;
+          margin-top: 2rem;
+          font-size: 1.2rem;
+        }
+
+        /* Modo oscuro */
+        @media (prefers-color-scheme: dark) {
+          .custom-hubspot-form {
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+          }
+
+          .custom-hubspot-form .hs-input {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+          }
+
+          .custom-hubspot-form select.hs-input {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+          }
+
+          .custom-hubspot-form label {
+            color: rgba(255, 255, 255, 0.9);
+          }
+
+          .custom-hubspot-form .hs-error-msgs {
+            color: #ff6b6b;
+          }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+          .custom-hubspot-form {
+            padding: 1.5rem;
+          }
+
+          .custom-hubspot-form .hs-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+          }
+
+          .custom-hubspot-form .hs-input {
+            padding: 1rem;
+            font-size: 1rem;
+          }
+
+          .custom-hubspot-form label {
+            font-size: 1rem;
+          }
+        }
+      </style>
     </div>
   </section>
 

@@ -1,238 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Noticias Migratorias | Viajea</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    .news-page {
-      padding: 120px 5% 4rem;
-      background: var(--light-bg);
-    }
-
-    .news-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .news-header h1 {
-      font-size: 2.5rem;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-    }
-
-    .news-header p {
-      color: var(--text-color);
-      opacity: 0.8;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .news-categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 4rem;
-    }
-
-    .news-category {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .news-category h2 {
-      color: var(--primary-color);
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .news-category h2 i {
-      color: var(--secondary-color);
-    }
-
-    .news-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .news-item {
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-    }
-
-    .news-item:last-child {
-      border-bottom: none;
-    }
-
-    .news-item h3 {
-      font-size: 1.1rem;
-      color: var(--text-color);
-      margin-bottom: 0.5rem;
-    }
-
-    .news-item p {
-      font-size: 0.9rem;
-      color: var(--text-color);
-      opacity: 0.8;
-      margin-bottom: 0.5rem;
-    }
-
-    .news-item .date {
-      font-size: 0.8rem;
-      color: var(--secondary-color);
-    }
-
-    .news-item a {
-      color: var(--accent-color);
-      text-decoration: none;
-      font-weight: 500;
-      display: inline-block;
-      margin-top: 0.5rem;
-    }
-
-    .news-item a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      .news-page {
-        padding: 100px 1rem 2rem;
-      }
-
-      .news-header h1 {
-        font-size: 2rem;
-      }
-
-      .news-categories {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .news-category {
-        background: rgba(255, 255, 255, 0.05);
-      }
-
-      .news-item {
-        border-bottom-color: rgba(255, 255, 255, 0.1);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias de Viajea - Actualizaciones y Novedades</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="header">
-    <div class="header-container">
-      <a href="index.html">
-        <img src="assets/viajea logo.png" alt="Logo de Viajea - Agencia de viajes" class="logo" />
-      </a>
-      <nav class="nav-contact">
-        <a href="https://wa.me/51972481874?text=¡Hola%20Viajea!%20Me%20gustaría%20información%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer" class="telefono">
-          <i class="fab fa-whatsapp"></i>
-          +51 972 481 874
-        </a>
-      </nav>
-    </div>
-  </header>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="assets/viajea logo.png" alt="Logo de Viajea" class="logo">
+            </a>
+            <nav class="nav-contact">
+                <a href="https://wa.me/51972481874" target="_blank" rel="noopener noreferrer" class="telefono">
+                    <i class="fab fa-whatsapp"></i>
+                    +51 972 481 874
+                </a>
+            </nav>
+        </div>
+    </header>
 
-  <main class="news-page">
-    <div class="news-header">
-      <h1>Noticias Migratorias</h1>
-      <p>Mantente informado sobre las últimas actualizaciones en trámites migratorios, visas y regulaciones de viaje.</p>
-    </div>
+    <main class="noticias-main">
+        <section id="visas" class="noticia-section">
+            <h2>Visas y Permisos</h2>
+            <div class="noticia-content">
+                <h3>Actualizaciones en Requisitos de Visas</h3>
+                <p>Últimas actualizaciones en los requisitos de visas para diferentes países. Mantente informado sobre los cambios en la documentación necesaria.</p>
+                <ul>
+                    <li>Nuevos requisitos para visa Schengen</li>
+                    <li>Cambios en el proceso de visa americana</li>
+                    <li>Actualizaciones en visas para países de América Latina</li>
+                </ul>
+            </div>
+        </section>
 
-    <div class="news-categories">
-      <div class="news-category">
-        <h2><i class="fas fa-passport"></i> Visas y Permisos</h2>
-        <ul class="news-list">
-          <li class="news-item">
-            <h3>Nuevos Requisitos para Visa Americana</h3>
-            <p>Actualización de los requisitos para solicitar visa de turista a Estados Unidos.</p>
-            <span class="date">Actualizado: 15 de Marzo, 2024</span>
-            <a href="#">Leer más</a>
-          </li>
-          <li class="news-item">
-            <h3>Visa Schengen: Cambios en el Proceso</h3>
-            <p>Modificaciones en el proceso de solicitud de visa para países de la Unión Europea.</p>
-            <span class="date">Actualizado: 10 de Marzo, 2024</span>
-            <a href="#">Leer más</a>
-          </li>
-          <li class="news-item">
-            <h3>Permisos Especiales para Viajes de Negocios</h3>
-            <p>Información sobre permisos especiales para viajes corporativos.</p>
-            <span class="date">Actualizado: 5 de Marzo, 2024</span>
-            <a href="#">Leer más</a>
-          </li>
-        </ul>
-      </div>
+        <section id="aerolineas" class="noticia-section">
+            <h2>Regulaciones de Aerolíneas</h2>
+            <div class="noticia-content">
+                <h3>Políticas Actualizadas</h3>
+                <p>Información sobre las últimas regulaciones y políticas de las principales aerolíneas.</p>
+                <ul>
+                    <li>Cambios en políticas de equipaje</li>
+                    <li>Nuevas rutas disponibles</li>
+                    <li>Actualizaciones en protocolos de seguridad</li>
+                </ul>
+            </div>
+        </section>
 
-      <div class="news-category">
-        <h2><i class="fas fa-plane"></i> Regulaciones de Aerolíneas</h2>
-        <ul class="news-list">
-          <li class="news-item">
-            <h3>Nuevas Políticas de Equipaje</h3>
-            <p>Actualización de las políticas de equipaje para vuelos internacionales.</p>
-            <span class="date">Actualizado: 12 de Marzo, 2024</span>
-            <a href="#">Leer más</a>
-          </li>
-          <li class="news-item">
-            <h3>Requisitos de Documentación para Vuelos</h3>
-            <p>Documentos necesarios para viajar en diferentes aerolíneas.</p>
-            <span class="date">Actualizado: 8 de Marzo, 2024</span>
-            <a href="#">Leer más</a>
-          </li>
-          <li class="news-item">
-            <h3>Restricciones de Vuelo Actualizadas</h3>
-            <p>Últimas actualizaciones sobre restricciones de vuelo por país.</p>
-            <span class="date">Actualizado: 3 de Marzo, 2024</span>
-            <a href="#">Leer más</a>
-          </li>
-        </ul>
-      </div>
+        <section id="peru" class="noticia-section">
+            <h2>Normativas Peruanas</h2>
+            <div class="noticia-content">
+                <h3>Actualizaciones Migratorias</h3>
+                <p>Últimas noticias sobre regulaciones migratorias en Perú.</p>
+                <ul>
+                    <li>Cambios en requisitos de salida</li>
+                    <li>Nuevas normativas para extranjeros</li>
+                    <li>Actualizaciones en documentación requerida</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
-      <div class="news-category">
-        <h2><i class="fas fa-landmark"></i> Normativas Peruanas</h2>
-        <ul class="news-list">
-          <li class="news-item">
-            <h3>Cambios en la Ley Migratoria Peruana</h3>
-            <p>Actualizaciones en las regulaciones migratorias peruanas.</p>
-            <span class="date">Actualizado: 14 de Marzo, 2024</span>
-            <a href="#">Leer más</a>
-          </li>
-          <li class="news-item">
-            <h3>Requisitos para Pasaportes Peruanos</h3>
-            <p>Información actualizada sobre trámites de pasaporte.</p>
-            <span class="date">Actualizado: 9 de Marzo, 2024</span>
-            <a href="#">Leer más</a>
-          </li>
-          <li class="news-item">
-            <h3>Procedimientos en Migraciones</h3>
-            <p>Guía actualizada de trámites en Migraciones Perú.</p>
-            <span class="date">Actualizado: 4 de Marzo, 2024</span>
-            <a href="#">Leer más</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <div class="social-links">
-      <a href="https://www.facebook.com/profile.php?id=61575475312399" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://wa.me/51972481874" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.tiktok.com/@viajea.click" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en TikTok"><i class="fab fa-tiktok"></i></a>
-    </div>
-    <p>© 2025 Viajea - Todos los derechos reservados</p>
-    <p>📍 Av. 2 de Octubre (Calle 27), Urb. Puerta de Pro, Los Olivos, Lima - Perú</p>
-    <p>Teléfono: +51 972 481 874</p>
-  </footer>
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61575475312399" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/51972481874" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.tiktok.com/@viajea.click" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p>© 2025 Viajea - Todos los derechos reservados</p>
+        <p>📍 Av. 2 de Octubre (Calle 27), Urb. Puerta de Pro, Los Olivos, Lima - Perú</p>
+        <p>Teléfono: +51 972 481 874</p>
+    </footer>
 </body>
-</html> 
+</html>

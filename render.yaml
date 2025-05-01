@@ -1,0 +1,9 @@
+services:
+  - type: static
+    name: viajea-click-landing
+    env: static
+    staticPublishPath: ./
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

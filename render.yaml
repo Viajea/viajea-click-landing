@@ -2,6 +2,7 @@ services:
   - type: static
     name: viajea-click-landing
     env: static
+    buildCommand: npm run build
     staticPublishPath: ./
     routes:
       - type: rewrite

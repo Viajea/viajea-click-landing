@@ -1,0 +1,13 @@
+{
+  "name": "viajea.click",
+  "version": "1.0.0",
+  "description": "Landing page de Viajea",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve",
+    "build": "echo 'Build completed'"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
